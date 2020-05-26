@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="Volo.Abp.Autofac" Version="2.8.0" />
     <ProjectReference Include="..\jory.abp.HttpApi\jory.abp.HttpApi.csproj" />
+    <ProjectReference Include="..\jory.abp.Swagger\jory.abp.Swagger.csproj" />
   </ItemGroup>
 
 </Project>
