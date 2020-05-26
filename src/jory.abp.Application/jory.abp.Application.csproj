@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>jory.abp.Application</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\jory.abp.Application.Caching\jory.abp.Application.Caching.csproj" />
+    <ProjectReference Include="..\jory.abp.Domain.Shared\jory.abp.Domain.Shared.csproj" />
+    <ProjectReference Include="..\jory.abp.Application.Contracts\jory.abp.Application.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.Identity.Application" Version="2.8.0" />
+  </ItemGroup>
+
+</Project>
