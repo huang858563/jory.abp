@@ -27,5 +27,12 @@ namespace jory.abp.EntityFrameworkCore
 
             modelBuilder.Configure();
         }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+
+            optionsBuilder.EnableSensitiveDataLogging();
+        }
     }
 }

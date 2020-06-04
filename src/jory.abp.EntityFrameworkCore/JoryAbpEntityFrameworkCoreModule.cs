@@ -40,7 +40,7 @@ namespace jory.abp.EntityFrameworkCore
                         options.UseSqlite();
                         break;
                     default:
-                        //options.UseMySQL();
+                        options.UseSqlServer();
                         break;
                 }
             });

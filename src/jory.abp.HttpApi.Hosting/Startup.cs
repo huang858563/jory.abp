@@ -1,8 +1,5 @@
-﻿using jory.abp.Domain.Configurations;
-using jory.abp.EntityFrameworkCore;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using Volo.Abp.EntityFrameworkCore;
 
 namespace jory.abp.HttpApi.Hosting
 {
