@@ -5,7 +5,7 @@ using Volo.Abp.Application.Services;
 
 namespace jory.abp.Application
 {
-    public class JoryAbpApplicationServiceBase : ApplicationService
+    public class ServiceBase : ApplicationService
     {
     }
 }

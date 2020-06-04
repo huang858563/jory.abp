@@ -1,4 +1,5 @@
-﻿using Volo.Abp.Identity;
+﻿using jory.abp.Application;
+using Volo.Abp.Identity;
 using Volo.Abp.Modularity;
 
 namespace jory.abp.HttpApi

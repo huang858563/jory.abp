@@ -7,7 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="appsettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="appsettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Volo.Abp.Autofac" Version="2.8.0" />
+    <ProjectReference Include="..\jory.abp.EntityFrameworkCore\jory.abp.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\jory.abp.HttpApi\jory.abp.HttpApi.csproj" />
     <ProjectReference Include="..\jory.abp.Swagger\jory.abp.Swagger.csproj" />
   </ItemGroup>

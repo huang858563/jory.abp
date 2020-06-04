@@ -1,4 +1,4 @@
-﻿using jory.abp.HelloWorld;
+﻿using jory.abp.Application.HelloWorld;
 using Microsoft.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc;
 

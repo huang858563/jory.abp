@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using jory.abp.Application;
-
-namespace jory.abp.HelloWorld.Impl
+﻿namespace jory.abp.Application.HelloWorld.Impl
 {
-    public class HelloWorldService : JoryAbpApplicationServiceBase, IHelloWorldService
+    public class HelloWorldService : ServiceBase, IHelloWorldService
     {
         public string HelloWorld()
         {

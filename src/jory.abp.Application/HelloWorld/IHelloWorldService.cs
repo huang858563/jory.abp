@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace jory.abp.HelloWorld
+﻿namespace jory.abp.Application.HelloWorld
 {
     public interface IHelloWorldService
     {

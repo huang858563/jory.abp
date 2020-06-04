@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using jory.abp.EntityFrameworkCore;
 using jory.abp.Swagger;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
@@ -12,11 +13,13 @@ using Volo.Abp.Modularity;
 
 namespace jory.abp.HttpApi.Hosting
 {
-    [DependsOn(typeof(AbpAspNetCoreMvcModule),
+    [DependsOn(
+        typeof(AbpAspNetCoreMvcModule),
         typeof(AbpAutofacModule),
         typeof(JoryAbpHttpApiModule),
-        typeof(JoryAbpSwaggerModule)
-        )]
+        typeof(JoryAbpSwaggerModule),
+        typeof(JoryAbpEntityFrameworkCoreModule)
+    )]
     public class JoryAbpHttpApiHostingModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
@@ -42,5 +45,7 @@ namespace jory.abp.HttpApi.Hosting
             // 路由映射
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
+
+        
     }
 }
