@@ -1,18 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
   <Import Project="..\..\common.props" />
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <SatelliteResourceLanguages>en-US</SatelliteResourceLanguages>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Content Remove="appsettings.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="appsettings.json" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Volo.Abp.Autofac" Version="2.8.0" />

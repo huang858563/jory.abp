@@ -1,10 +1,10 @@
-{
+﻿{
   "iisSettings": {
-    "windowsAuthentication": false,
-    "anonymousAuthentication": true,
+    "windowsAuthentication": false, 
+    "anonymousAuthentication": true, 
     "iisExpress": {
-      "applicationUrl": "https://localhost:44314/",
-      "sslPort": 44314
+      "applicationUrl": "http://localhost:47716",
+      "sslPort": 0
     }
   },
   "profiles": {
@@ -15,13 +15,13 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "jory.abp.Web": {
+    "jory.abp.HttpApi.Hosting": {
       "commandName": "Project",
       "launchBrowser": true,
+      "applicationUrl": "http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "applicationUrl": "https://localhost:44314/"
+      }
     }
   }
 }
