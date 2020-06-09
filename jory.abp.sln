@@ -36,7 +36,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution-items", "solution-
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "jory.abp.HttpApi", "src\jory.abp.HttpApi\jory.abp.HttpApi.csproj", "{228654DB-F7D9-4A4E-8110-4B8687EF2E55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jory.abp.HttpApi.Hosting", "src\jory.abp.HttpApi.Hosting\jory.abp.HttpApi.Hosting.csproj", "{BFD77705-408F-4973-9A05-2DFDB01701E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "jory.abp.HttpApi.Hosting", "src\jory.abp.HttpApi.Hosting\jory.abp.HttpApi.Hosting.csproj", "{BFD77705-408F-4973-9A05-2DFDB01701E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -4,9 +4,8 @@ using System.Text;
 
 namespace jory.abp.Application.Contracts.Blog
 {
-   public  class PostDto
+    public class PostDto
     {
-        public int Id { get; set; }
         /// <summary>
         /// 标题
         /// </summary>
