@@ -3,13 +3,16 @@ using jory.abp.Application.Contracts.Blog;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
+using jory.abp.Domain.Shared;
 using jory.abp.ToolKits.Base;
+using Microsoft.AspNetCore.Authorization;
 using Volo.Abp.AspNetCore.Mvc;
 
 namespace jory.abp.HttpApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [ApiExplorerSettings(GroupName = Grouping.GroupName_v1)]
     public class BlogController : AbpController
     {
         private readonly IBlogService _blogService;
@@ -24,6 +27,7 @@ namespace jory.abp.HttpApi.Controllers
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
+        [Authorize]
         [HttpPost]
         public async Task<ServiceResult<string>> InsertPostAsync([FromBody] PostDto dto)
         {
@@ -35,6 +39,7 @@ namespace jory.abp.HttpApi.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        [Authorize]
         [HttpDelete]
         public async Task<ServiceResult> DeletePostAsync([Required] int id)
         {
@@ -47,6 +52,7 @@ namespace jory.abp.HttpApi.Controllers
         /// <param name="id"></param>
         /// <param name="dto"></param>
         /// <returns></returns>
+        [Authorize]
         [HttpPut]
         public async Task<ServiceResult<string>> UpdatePostAsync([Required] int id, [FromBody] PostDto dto)
         {

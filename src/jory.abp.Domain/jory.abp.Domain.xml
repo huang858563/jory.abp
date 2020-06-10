@@ -148,7 +148,7 @@
             appsettings.json配置文件数据读取类
             </summary>
         </member>
-        <member name="F:jory.abp.Domain.Configurations.AppSettings.Config">
+        <member name="F:jory.abp.Domain.Configurations.AppSettings._config">
             <summary>
             配置文件的根节点
             </summary>
@@ -166,6 +166,61 @@
         <member name="P:jory.abp.Domain.Configurations.AppSettings.ConnectionStrings">
             <summary>
             ConnectionStrings
+            </summary>
+        </member>
+        <member name="P:jory.abp.Domain.Configurations.AppSettings.ApiVersion">
+            <summary>
+            ApiVersion
+            </summary>
+        </member>
+        <member name="T:jory.abp.Domain.Configurations.AppSettings.Caching">
+            <summary>
+            Caching
+            </summary>
+        </member>
+        <member name="P:jory.abp.Domain.Configurations.AppSettings.Caching.RedisConnectionString">
+            <summary>
+            RedisConnectionString
+            </summary>
+        </member>
+        <member name="F:jory.abp.Domain.Configurations.GitHubConfig.ApiAuthorize">
+            <summary>
+            GET请求，跳转GitHub登录界面，获取用户授权，得到code
+            </summary>
+        </member>
+        <member name="F:jory.abp.Domain.Configurations.GitHubConfig.ApiAccessToken">
+            <summary>
+            POST请求，根据code得到access_token
+            </summary>
+        </member>
+        <member name="F:jory.abp.Domain.Configurations.GitHubConfig.ApiUser">
+            <summary>
+            GET请求，根据access_token得到用户信息
+            </summary>
+        </member>
+        <member name="F:jory.abp.Domain.Configurations.GitHubConfig.UserId">
+            <summary>
+            Github UserId
+            </summary>
+        </member>
+        <member name="F:jory.abp.Domain.Configurations.GitHubConfig.ClientId">
+            <summary>
+            Client ID
+            </summary>
+        </member>
+        <member name="F:jory.abp.Domain.Configurations.GitHubConfig.ClientSecret">
+            <summary>
+            Client Secret
+            </summary>
+        </member>
+        <member name="F:jory.abp.Domain.Configurations.GitHubConfig.RedirectUri">
+            <summary>
+            Authorization callback URL
+            </summary>
+        </member>
+        <member name="F:jory.abp.Domain.Configurations.GitHubConfig.ApplicationName">
+            <summary>
+            Application name
             </summary>
         </member>
     </members>

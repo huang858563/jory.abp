@@ -4,6 +4,26 @@
         <name>jory.abp.HttpApi</name>
     </assembly>
     <members>
+        <member name="M:jory.abp.HttpApi.Controllers.AuthController.GetLoginAddressAsync">
+            <summary>
+            获取登录地址(GitHub)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:jory.abp.HttpApi.Controllers.AuthController.GetAccessTokenAsync(System.String)">
+            <summary>
+            获取AccessToken
+            </summary>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:jory.abp.HttpApi.Controllers.AuthController.GenerateTokenAsync(System.String)">
+            <summary>
+            登录成功，生成Token
+            </summary>
+            <param name="accessToken"></param>
+            <returns></returns>
+        </member>
         <member name="M:jory.abp.HttpApi.Controllers.BlogController.InsertPostAsync(jory.abp.Application.Contracts.Blog.PostDto)">
             <summary>
             添加博客

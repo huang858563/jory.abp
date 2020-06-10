@@ -14,7 +14,7 @@ namespace jory.abp.Domain.Configurations
         /// <summary>
         /// 配置文件的根节点
         /// </summary>
-        private static readonly IConfigurationRoot Config;
+        private static readonly IConfigurationRoot _config;
 
         /// <summary>
         /// Constructor
@@ -24,17 +24,55 @@ namespace jory.abp.Domain.Configurations
             // 加载appsettings.json，并构建IConfigurationRoot
             var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", true, true);
-            Config = builder.Build();
+            _config = builder.Build();
         }
 
         /// <summary>
         /// EnableDb
         /// </summary>
-        public static string EnableDb => Config["ConnectionStrings:Enable"];
+        public static string EnableDb => _config["ConnectionStrings:Enable"];
 
         /// <summary>
         /// ConnectionStrings
         /// </summary>
-        public static string ConnectionStrings => Config.GetConnectionString(EnableDb);
+        public static string ConnectionStrings => _config.GetConnectionString(EnableDb);
+
+        /// <summary>
+        /// ApiVersion
+        /// </summary>
+        public static string ApiVersion => _config["ApiVersion"];
+
+        public static class GitHub
+        {
+            public static int UserId => Convert.ToInt32(_config["Github:UserId"]);
+
+            public static string ClientId => _config["Github:ClientID"];
+
+            public static string ClientSecret => _config["Github:ClientSecret"];
+
+            public static string RedirectUri => _config["Github:RedirectUri"];
+
+            public static string ApplicationName => _config["Github:ApplicationName"];
+        }
+
+        public static class JWT
+        {
+            public static string Domain => _config["JWT:Domain"];
+
+            public static string SecurityKey => _config["JWT:SecurityKey"];
+
+            public static int Expires => Convert.ToInt32(_config["JWT:Expires"]);
+        }
+
+        /// <summary>
+        /// Caching
+        /// </summary>
+        public static class Caching
+        {
+            /// <summary>
+            /// RedisConnectionString
+            /// </summary>
+            public static string RedisConnectionString => _config["Caching:RedisConnectionString"];
+        }
     }
 }

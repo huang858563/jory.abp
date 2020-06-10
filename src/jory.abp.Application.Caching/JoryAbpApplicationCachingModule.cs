@@ -1,4 +1,6 @@
 ﻿using jory.abp.Domain;
+using jory.abp.Domain.Configurations;
+using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.Caching;
 using Volo.Abp.Modularity;
 
@@ -12,7 +14,12 @@ namespace jory.abp.Application.Caching
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
-            base.ConfigureServices(context);
+            context.Services.AddStackExchangeRedisCache(options =>
+            {
+                options.Configuration = AppSettings.Caching.RedisConnectionString;
+                //options.InstanceName
+                //options.ConfigurationOptions
+            });
         }
     }
 }
