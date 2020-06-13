@@ -4,5 +4,27 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>jory.abp.BackgroundJobs</RootNamespace>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Hangfire.Dashboard.BasicAuthorization" Version="1.0.2" />
+    <PackageReference Include="Hangfire.SqlServer" Version="1.7.11" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.24" />
+    <PackageReference Include="log4net" Version="2.0.8" />
+    <PackageReference Include="PuppeteerSharp" Version="2.0.3" />
+    <PackageReference Include="Volo.Abp.AspNetCore" Version="2.9.0" />
+    <PackageReference Include="Volo.Abp.BackgroundJobs.HangFire" Version="2.9.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\jory.abp.Application.Contracts\jory.abp.Application.Contracts.csproj" />
+    <ProjectReference Include="..\jory.abp.Domain\jory.abp.Domain.csproj" />
+    <ProjectReference Include="..\jory.abp.ToolKits\jory.abp.ToolKits.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Extensions.Hosting.Abstractions">
+      <HintPath>C:\Users\F1041534\.nuget\packages\microsoft.extensions.hosting.abstractions\3.1.2\lib\netcoreapp3.1\Microsoft.Extensions.Hosting.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Volo.Abp.Core">
+      <HintPath>C:\Users\F1041534\.nuget\packages\volo.abp.core\2.9.0\lib\netstandard2.0\Volo.Abp.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 
 </Project>

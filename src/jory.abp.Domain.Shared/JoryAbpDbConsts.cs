@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace jory.abp.Domain.Shared
+﻿namespace jory.abp.Domain.Shared
 {
     public class JoryAbpDbConsts
     {
@@ -17,6 +13,10 @@ namespace jory.abp.Domain.Shared
             public const string PostTags = "Post_Tags";
 
             public const string Friendlinks = "Friendlinks";
+
+            public const string Wallpapers = "Wallpapers";
+
+            public const string HotNews = "HotNews";
         }
     }
 }

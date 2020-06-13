@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using jory.abp.BackgroundJobs;
 using jory.abp.Domain.Configurations;
 using jory.abp.EntityFrameworkCore;
 using jory.abp.HttpApi.Hosting.Filters;
@@ -12,10 +9,13 @@ using jory.abp.ToolKits.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using System;
+using System.Linq;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc.ExceptionHandling;
@@ -29,7 +29,8 @@ namespace jory.abp.HttpApi.Hosting
         typeof(AbpAutofacModule),
         typeof(JoryAbpHttpApiModule),
         typeof(JoryAbpSwaggerModule),
-        typeof(JoryAbpEntityFrameworkCoreModule)
+        typeof(JoryAbpEntityFrameworkCoreModule),
+        typeof(JoryAbpBackgroundJobsModule)
     )]
     public class JoryAbpHttpApiHostingModule : AbpModule
     {
@@ -45,6 +46,24 @@ namespace jory.abp.HttpApi.Hosting
                 // 添加自己实现的
                 options.Filters.Add(typeof(JoryAbpExceptionFilter));
             });
+
+            // 跨域配置
+            context.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(p => p.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            });
+
+            // 路由配置
+            context.Services.AddRouting(options =>
+            {
+                // 设置URL为小写
+                options.LowercaseUrls = true;
+                // 在生成的URL后面添加斜杠
+                options.AppendTrailingSlash = true;
+            });
+
+            //context.Services.AddTransient<IHostedService, HelloWorldJob>();
+
             // 身份验证之JWT
             context.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                    .AddJwtBearer(options =>
@@ -106,6 +125,14 @@ namespace jory.abp.HttpApi.Hosting
                 // 生成异常页面
                 app.UseDeveloperExceptionPage();
             }
+            // 使用HSTS的中间件，该中间件添加了严格传输安全头
+            app.UseHsts();
+
+            // 转发将标头代理到当前请求，配合 Nginx 使用，获取用户真实IP
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            });
 
             // 路由
             app.UseRouting();
@@ -121,6 +148,10 @@ namespace jory.abp.HttpApi.Hosting
 
             // 认证授权
             app.UseAuthorization();
+
+            // HTTP => HTTPS
+            app.UseHttpsRedirection();
+
             // 路由映射
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }

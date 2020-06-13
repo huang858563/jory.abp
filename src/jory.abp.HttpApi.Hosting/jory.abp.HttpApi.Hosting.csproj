@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Volo.Abp.Autofac" Version="2.9.0" />
+    <ProjectReference Include="..\jory.abp.BackgroundJobs\jory.abp.BackgroundJobs.csproj" />
     <ProjectReference Include="..\jory.abp.EntityFrameworkCore\jory.abp.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\jory.abp.HttpApi\jory.abp.HttpApi.csproj" />
     <ProjectReference Include="..\jory.abp.Swagger\jory.abp.Swagger.csproj" />

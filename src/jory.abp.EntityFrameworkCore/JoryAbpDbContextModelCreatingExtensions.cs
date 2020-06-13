@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using jory.abp.Domain.Blog;
+﻿using jory.abp.Domain.Blog;
+using jory.abp.Domain.HotNews;
 using jory.abp.Domain.Shared;
+using jory.abp.Domain.Wallpaper;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp;
+using static jory.abp.Domain.Shared.JoryAbpConsts;
 
 namespace jory.abp.EntityFrameworkCore
 {
@@ -16,7 +16,7 @@ namespace jory.abp.EntityFrameworkCore
 
             builder.Entity<Post>(b =>
             {
-                b.ToTable(JoryAbpConsts.DbTablePrefix + JoryAbpDbConsts.DbTableName.Posts);
+                b.ToTable(DbTablePrefix + JoryAbpDbConsts.DbTableName.Posts);
                 b.HasKey(x => x.Id);
                 b.Property(x => x.Title).HasMaxLength(200).IsRequired();
                 b.Property(x => x.Author).HasMaxLength(10);
@@ -29,7 +29,7 @@ namespace jory.abp.EntityFrameworkCore
 
             builder.Entity<Category>(b =>
             {
-                b.ToTable(JoryAbpConsts.DbTablePrefix + JoryAbpDbConsts.DbTableName.Categories);
+                b.ToTable(DbTablePrefix + JoryAbpDbConsts.DbTableName.Categories);
                 b.HasKey(x => x.Id);
                 b.Property(x => x.CategoryName).HasMaxLength(50).IsRequired();
                 b.Property(x => x.DisplayName).HasMaxLength(50).IsRequired();
@@ -37,7 +37,7 @@ namespace jory.abp.EntityFrameworkCore
 
             builder.Entity<Tag>(b =>
             {
-                b.ToTable(JoryAbpConsts.DbTablePrefix + JoryAbpDbConsts.DbTableName.Tags);
+                b.ToTable(DbTablePrefix + JoryAbpDbConsts.DbTableName.Tags);
                 b.HasKey(x => x.Id);
                 b.Property(x => x.TagName).HasMaxLength(50).IsRequired();
                 b.Property(x => x.DisplayName).HasMaxLength(50).IsRequired();
@@ -45,7 +45,7 @@ namespace jory.abp.EntityFrameworkCore
 
             builder.Entity<PostTag>(b =>
             {
-                b.ToTable(JoryAbpConsts.DbTablePrefix + JoryAbpDbConsts.DbTableName.PostTags);
+                b.ToTable(DbTablePrefix + JoryAbpDbConsts.DbTableName.PostTags);
                 b.HasKey(x => x.Id);
                 b.Property(x => x.PostId).HasColumnType("int").IsRequired();
                 b.Property(x => x.TagId).HasColumnType("int").IsRequired();
@@ -53,10 +53,32 @@ namespace jory.abp.EntityFrameworkCore
 
             builder.Entity<FriendLink>(b =>
             {
-                b.ToTable(JoryAbpConsts.DbTablePrefix + JoryAbpDbConsts.DbTableName.Friendlinks);
+                b.ToTable(DbTablePrefix + JoryAbpDbConsts.DbTableName.Friendlinks);
                 b.HasKey(x => x.Id);
                 b.Property(x => x.Title).HasMaxLength(20).IsRequired();
                 b.Property(x => x.LinkUrl).HasMaxLength(100).IsRequired();
+            });
+
+            builder.Entity<Wallpaper>(b =>
+            {
+                b.ToTable(DbTablePrefix + JoryAbpDbConsts.DbTableName.Wallpapers);
+                b.HasKey(x => x.Id);
+                b.Property(x => x.Id).ValueGeneratedOnAdd();
+                b.Property(x => x.Url).HasMaxLength(200).IsRequired();
+                b.Property(x => x.Title).HasMaxLength(100).IsRequired();
+                b.Property(x => x.Type).HasColumnType("int").IsRequired();
+                b.Property(x => x.CreateTime).HasColumnType("datetime").IsRequired();
+            });
+
+            builder.Entity<HotNews>(b =>
+            {
+                b.ToTable(DbTablePrefix + JoryAbpDbConsts.DbTableName.HotNews);
+                b.HasKey(x => x.Id);
+                b.Property(x => x.Id).ValueGeneratedOnAdd();
+                b.Property(x => x.Title).HasMaxLength(200).IsRequired();
+                b.Property(x => x.Url).HasMaxLength(250).IsRequired();
+                b.Property(x => x.SourceId).HasColumnType("int").IsRequired();
+                b.Property(x => x.CreateTime).HasColumnType("datetime").IsRequired();
             });
         }
     }
