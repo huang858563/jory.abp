@@ -116,13 +116,13 @@ namespace jory.abp.Domain.Shared
 
         public const string Blog = "Blog";
 
-        public const string Blog_Post = Blog + ":Post";
+        public const string BlogPost = Blog + ":Post";
 
-        public const string Blog_Tag = Blog + ":Tag";
+        public const string BlogTag = Blog + ":Tag";
 
-        public const string Blog_Category = Blog + ":Category";
+        public const string BlogCategory = Blog + ":Category";
 
-        public const string Blog_FriendLink = Blog + ":FriendLink";
+        public const string BlogFriendLink = Blog + ":FriendLink";
     }
 
     /// <summary>

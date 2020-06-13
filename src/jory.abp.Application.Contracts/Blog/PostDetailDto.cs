@@ -1,8 +1,8 @@
-﻿using System;
+﻿using System.Collections.Generic;
 
 namespace jory.abp.Application.Contracts.Blog
 {
-    public class PostDto
+    public class PostDetailDto
     {
         /// <summary>
         /// 标题
@@ -30,13 +30,28 @@ namespace jory.abp.Application.Contracts.Blog
         public string Markdown { get; set; }
 
         /// <summary>
-        /// 分类Id
-        /// </summary>
-        public int CategoryId { get; set; }
-
-        /// <summary>
         /// 创建时间
         /// </summary>
-        public DateTime CreationTime { get; set; }
+        public string CreationTime { get; set; }
+
+        /// <summary>
+        /// 分类
+        /// </summary>
+        public CategoryDto Category { get; set; }
+
+        /// <summary>
+        /// 标签列表
+        /// </summary>
+        public IEnumerable<TagDto> Tags { get; set; }
+
+        /// <summary>
+        /// 上一篇
+        /// </summary>
+        public PostForPagedDto Previous { get; set; }
+
+        /// <summary>
+        /// 下一篇
+        /// </summary>
+        public PostForPagedDto Next { get; set; }
     }
 }
