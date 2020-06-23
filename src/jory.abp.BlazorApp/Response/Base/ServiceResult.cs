@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using jory.abp.BlazorApp.Response.Base.Enum;
+﻿using jory.abp.BlazorApp.Response.Base.Enum;
+using System;
 
 namespace jory.abp.BlazorApp.Response.Base
 {

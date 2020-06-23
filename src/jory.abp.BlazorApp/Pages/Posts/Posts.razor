@@ -8,9 +8,9 @@
 else
 {
     <div class="post-wrap archive">
-        @if (posts.Success && posts.Result.Item.Any())
+        @if (posts.Success && posts.Result.Items.Any())
         {
-            @foreach (var item in posts.Result.Item)
+            @foreach (var item in posts.Result.Items)
             {
                 <h3>@item.Year</h3>
                 @foreach (var post in item.Posts)

@@ -10,9 +10,9 @@
     {
         <div class="post-wrap archive">
             <NavLink style="float:right" href="/admin/post"><h3>📝~~~ 新增文章 ~~~📝</h3></NavLink>
-            @if (posts.Success && posts.Result.Item.Any())
+            @if (posts.Success && posts.Result.Items.Any())
             {
-                @foreach (var item in posts.Result.Item)
+                @foreach (var item in posts.Result.Items)
                 {
                     <h3>@item.Year</h3>
                     @foreach (var post in item.Posts)

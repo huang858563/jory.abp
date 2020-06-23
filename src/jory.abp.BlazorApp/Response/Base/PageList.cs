@@ -1,7 +1,5 @@
-﻿using System;
+﻿using jory.abp.BlazorApp.Response.Base.Paged;
 using System.Collections.Generic;
-using System.Text;
-using jory.abp.BlazorApp.Response.Base.Paged;
 
 namespace jory.abp.BlazorApp.Response.Base
 {

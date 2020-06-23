@@ -82,10 +82,10 @@
 
         await Common.InvokeAsync("window.func.switchTheme");
 
-        //var uri = await Common.CurrentUri();
-        //if (uri.AbsolutePath.StartsWith("/admin/post"))
-        //{
-        //    await Common.SwitchEditorTheme(currentTheme);
-        //}
+        var uri = await Common.CurrentUri();
+        if (uri.AbsolutePath.StartsWith("/admin/post"))
+        {
+            await Common.SwitchEditorTheme(currentTheme);
+        }
     }
 }
