@@ -38,6 +38,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "jory.abp.HttpApi", "src\jor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "jory.abp.HttpApi.Hosting", "src\jory.abp.HttpApi.Hosting\jory.abp.HttpApi.Hosting.csproj", "{BFD77705-408F-4973-9A05-2DFDB01701E8}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "jory.abp.BlazorApp", "src\jory.abp.BlazorApp\jory.abp.BlazorApp.csproj", "{FAF0711A-BA00-43E1-8879-9C029DF3C447}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -92,6 +94,10 @@ Global
 		{BFD77705-408F-4973-9A05-2DFDB01701E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BFD77705-408F-4973-9A05-2DFDB01701E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BFD77705-408F-4973-9A05-2DFDB01701E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAF0711A-BA00-43E1-8879-9C029DF3C447}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAF0711A-BA00-43E1-8879-9C029DF3C447}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAF0711A-BA00-43E1-8879-9C029DF3C447}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAF0711A-BA00-43E1-8879-9C029DF3C447}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -109,6 +115,7 @@ Global
 		{DBD5EB45-2AAE-4C81-B106-C04E5417C710} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
 		{228654DB-F7D9-4A4E-8110-4B8687EF2E55} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
 		{BFD77705-408F-4973-9A05-2DFDB01701E8} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
+		{FAF0711A-BA00-43E1-8879-9C029DF3C447} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28315BFD-90E7-4E14-A2EA-F3D23AF4126F}
