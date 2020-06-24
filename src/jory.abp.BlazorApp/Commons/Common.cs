@@ -1,20 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
+using System;
+using System.Threading.Tasks;
 
 namespace jory.abp.BlazorApp.Commons
 {
     public class Common
     {
         private readonly IJSRuntime _jsRuntime;
+
         private readonly NavigationManager _navigationManager;
 
         public Common(IJSRuntime jsRuntime, NavigationManager navigationManager)
         {
             _jsRuntime = jsRuntime;
+
             _navigationManager = navigationManager;
         }
 
@@ -63,14 +63,28 @@ namespace jory.abp.BlazorApp.Commons
         }
 
         /// <summary>
+        /// 切换编辑器主题
+        /// </summary>
+        /// <param name="currentTheme"></param>
+        /// <returns></returns>
+        public async Task SwitchEditorTheme(string currentTheme)
+        {
+            var editorTheme = currentTheme == "Light" ? "default" : "dark";
+
+            await SetStorageAsync("editorTheme", editorTheme);
+
+            await InvokeAsync("window.func.switchEditorTheme");
+        }
+
+        /// <summary>
         /// 跳转指定URL
         /// </summary>
-        /// <param name="uri"></param>
+        /// <param name="url"></param>
         /// <param name="forceLoad">true，绕过路由刷新页面</param>
         /// <returns></returns>
-        public async Task NavigateTo(string uri, bool forceLoad = false)
+        public async Task NavigateTo(string url, bool forceLoad = false)
         {
-            _navigationManager.NavigateTo(uri, forceLoad);
+            _navigationManager.NavigateTo(url, forceLoad);
 
             await Task.CompletedTask;
         }
@@ -84,20 +98,6 @@ namespace jory.abp.BlazorApp.Commons
             var uri = _navigationManager.ToAbsoluteUri(_navigationManager.Uri);
 
             return await Task.FromResult(uri);
-        }
-
-        /// <summary>
-        /// 切换编辑器主题
-        /// </summary>
-        /// <param name="currentTheme"></param>
-        /// <returns></returns>
-        public async Task SwitchEditorTheme(string currentTheme)
-        {
-            var editorTheme = currentTheme == "Light" ? "default" : "dark";
-
-            await SetStorageAsync("editorTheme", editorTheme);
-
-            await InvokeAsync("window.func.switchEditorTheme");
         }
     }
 }

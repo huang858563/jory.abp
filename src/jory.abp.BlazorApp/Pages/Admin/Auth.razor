@@ -1,4 +1,6 @@
-﻿<h3>Auth</h3>
+﻿@page "/auth"
+
+<Loading />
 
 @code {
     /// <summary>
@@ -43,10 +45,12 @@
     {
         // 当前URI对象
         var uri = await Common.CurrentUri();
-
+        Console.WriteLine("uri" + uri);
         // 是否回调携带了code参数
         bool hasCode = QueryHelpers.ParseQuery(uri.Query).TryGetValue("code", out Microsoft.Extensions.Primitives.StringValues code);
 
+        Console.WriteLine("hasCode"+hasCode);
+        Console.WriteLine("code"+ code);
         if (hasCode)
         {
             var access_token = await Http.GetFromJsonAsync<ServiceResult<string>>($"/auth/access_token?code={code}");
@@ -86,7 +90,7 @@
         {
             // 获取第三方登录地址
             var loginAddress = await Http.GetFromJsonAsync<ServiceResult<string>>("/auth/url");
-
+            Console.WriteLine(loginAddress);
             // 跳转到登录页面
             await Common.NavigateTo(loginAddress.Result);
         }

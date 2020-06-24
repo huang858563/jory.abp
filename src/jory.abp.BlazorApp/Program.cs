@@ -14,10 +14,10 @@ namespace jory.abp.BlazorApp
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("app");
 
-            var baseAddress = "https://localhost";
+            var baseAddress = "https://localhost:5001";
 
             if (builder.HostEnvironment.IsProduction())
-                baseAddress = "https://api.meowv.com";
+                baseAddress = " https://localhost:5001";
 
             builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri(baseAddress) });
 
