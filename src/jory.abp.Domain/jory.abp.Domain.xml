@@ -148,7 +148,7 @@
             appsettings.json配置文件数据读取类
             </summary>
         </member>
-        <member name="F:jory.abp.Domain.Configurations.AppSettings._config">
+        <member name="F:jory.abp.Domain.Configurations.AppSettings.Config">
             <summary>
             配置文件的根节点
             </summary>
@@ -173,9 +173,9 @@
             ApiVersion
             </summary>
         </member>
-        <member name="T:jory.abp.Domain.Configurations.AppSettings.Hangfire">
+        <member name="P:jory.abp.Domain.Configurations.AppSettings.ListenPort">
             <summary>
-            Hangfire
+            监听端口
             </summary>
         </member>
         <member name="T:jory.abp.Domain.Configurations.AppSettings.Caching">
@@ -186,6 +186,56 @@
         <member name="P:jory.abp.Domain.Configurations.AppSettings.Caching.RedisConnectionString">
             <summary>
             RedisConnectionString
+            </summary>
+        </member>
+        <member name="P:jory.abp.Domain.Configurations.AppSettings.Caching.IsOpen">
+            <summary>
+            是否开启
+            </summary>
+        </member>
+        <member name="T:jory.abp.Domain.Configurations.AppSettings.GitHub">
+            <summary>
+            GitHub
+            </summary>
+        </member>
+        <member name="T:jory.abp.Domain.Configurations.AppSettings.JWT">
+            <summary>
+            JWT
+            </summary>
+        </member>
+        <member name="T:jory.abp.Domain.Configurations.AppSettings.Hangfire">
+            <summary>
+            Hangfire
+            </summary>
+        </member>
+        <member name="T:jory.abp.Domain.Configurations.AppSettings.MTA">
+            <summary>
+            MTA
+            </summary>
+        </member>
+        <member name="T:jory.abp.Domain.Configurations.AppSettings.BaiduAI">
+            <summary>
+            百度AI 语音合成
+            </summary>
+        </member>
+        <member name="T:jory.abp.Domain.Configurations.AppSettings.TencentCloud">
+            <summary>
+            腾讯云API
+            </summary>
+        </member>
+        <member name="T:jory.abp.Domain.Configurations.AppSettings.RemoveBg">
+            <summary>
+            RemoveBg
+            </summary>
+        </member>
+        <member name="T:jory.abp.Domain.Configurations.AppSettings.FMApi">
+            <summary>
+            FM Api
+            </summary>
+        </member>
+        <member name="T:jory.abp.Domain.Configurations.AppSettings.Email">
+            <summary>
+            Email配置
             </summary>
         </member>
         <member name="P:jory.abp.Domain.Configurations.AppSettings.Email.Host">

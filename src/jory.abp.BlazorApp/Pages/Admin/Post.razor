@@ -17,7 +17,7 @@
             </div>
             <div class="post-box-item">
                 <input type="text" placeholder="URL" autocomplete="off" @bind="@input.Url" @bind:event="oninput" @onclick="@(() => { Open = false; })" />
-                <input type="text" placeholder="时间" autocomplete="off" @bind="@input.CreationTime" @bind:format="yyyy-MM-dd HH:mm:sss" @bind:event="oninput" @onclick="@(() => { Open = false; })" />
+                <input type="text" placeholder="时间" autocomplete="off" @bind="@input.CreationTime" @bind:format="yyyy-MM-dd HH:mm:ss" @bind:event="oninput" @onclick="@(() => { Open = false; })" />
             </div>
             <div id="editor">
                 <textarea style="display:none;">@input.Markdown</textarea>

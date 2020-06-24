@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using jory.abp.Domain.Configurations;
 using jory.abp.ToolKits.Extensions;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
@@ -15,6 +16,11 @@ namespace jory.abp.HttpApi.Hosting
                 .ConfigureWebHostDefaults(builder =>
                 {
                     builder.UseIISIntegration()
+                        .ConfigureKestrel(options =>
+                        {
+                            options.AddServerHeader = false;
+                        })
+                        .UseUrls($"https://*:{AppSettings.ListenPort}")
                         .UseStartup<Startup>();
                 }).UseAutofac().Build().RunAsync();
         }

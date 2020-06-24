@@ -45,21 +45,20 @@
     {
         // 当前URI对象
         var uri = await Common.CurrentUri();
-        Console.WriteLine("uri" + uri);
         // 是否回调携带了code参数
         bool hasCode = QueryHelpers.ParseQuery(uri.Query).TryGetValue("code", out Microsoft.Extensions.Primitives.StringValues code);
-
-        Console.WriteLine("hasCode"+hasCode);
-        Console.WriteLine("code"+ code);
         if (hasCode)
         {
-            var access_token = await Http.GetFromJsonAsync<ServiceResult<string>>($"/auth/access_token?code={code}");
+            Console.WriteLine("access_token"+ code);
+            var access_token = await Http.GetFromJsonAsync<ServiceResult<string>>($"/auth/accessToken?code={code}");
+            Console.WriteLine("access_token"+ access_token);
             if (access_token.Success)
             {
                 // 将access_token存入localStorage
                 await Common.SetStorageAsync("access_token", access_token.Result);
 
-                var token = await Http.GetFromJsonAsync<ServiceResult<string>>($"/auth/token?access_token={access_token.Result}");
+                var token = await Http.GetFromJsonAsync<ServiceResult<string>>($"/auth/token?accessToken={access_token.Result}");
+                Console.WriteLine("token" + token);
                 if (token.Success)
                 {
                     // 将token存入localStorage

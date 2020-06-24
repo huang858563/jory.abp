@@ -29,8 +29,8 @@ namespace jory.abp.HttpApi.Hosting
         typeof(AbpAutofacModule),
         typeof(JoryAbpHttpApiModule),
         typeof(JoryAbpSwaggerModule),
-        typeof(JoryAbpEntityFrameworkCoreModule),
-        typeof(JoryAbpBackgroundJobsModule)
+        typeof(JoryAbpEntityFrameworkCoreModule)
+        //typeof(JoryAbpBackgroundJobsModule)
     )]
     public class JoryAbpHttpApiHostingModule : AbpModule
     {
