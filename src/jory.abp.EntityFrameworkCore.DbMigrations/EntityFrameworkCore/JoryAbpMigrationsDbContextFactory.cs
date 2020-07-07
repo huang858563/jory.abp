@@ -15,7 +15,8 @@ namespace jory.abp.EntityFrameworkCore.DbMigrations.EntityFrameworkCore
             var configuration = BuildConfiguration();
 
             var builder = new DbContextOptionsBuilder<JoryAbpMigrationsDbContext>()
-                .UseSqlServer(configuration.GetConnectionString("Default"));
+                //.UseSqlServer(configuration.GetConnectionString("Default"));
+                .UseSqlite(configuration.GetConnectionString("Default"));
 
             return new JoryAbpMigrationsDbContext(builder.Options);
         }

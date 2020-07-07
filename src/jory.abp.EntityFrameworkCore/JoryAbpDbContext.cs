@@ -7,7 +7,7 @@ using Volo.Abp.EntityFrameworkCore;
 
 namespace jory.abp.EntityFrameworkCore
 {
-    [ConnectionStringName("SqlServer")]
+    [ConnectionStringName("Sqlite")]
     public class JoryAbpDbContext:AbpDbContext<JoryAbpDbContext>
     {
         public DbSet<Post> Posts { get; set; }

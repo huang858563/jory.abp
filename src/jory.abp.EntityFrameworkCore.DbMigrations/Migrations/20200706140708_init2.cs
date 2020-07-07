@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace jory.abp.EntityFrameworkCore.DbMigrations.Migrations
 {
-    public partial class v1 : Migration
+    public partial class init2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,7 +12,7 @@ namespace jory.abp.EntityFrameworkCore.DbMigrations.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Sqlite:Autoincrement", true),
                     CategoryName = table.Column<string>(maxLength: 50, nullable: false),
                     DisplayName = table.Column<string>(maxLength: 50, nullable: false)
                 },
@@ -26,7 +26,7 @@ namespace jory.abp.EntityFrameworkCore.DbMigrations.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Sqlite:Autoincrement", true),
                     Title = table.Column<string>(maxLength: 20, nullable: false),
                     LinkUrl = table.Column<string>(maxLength: 100, nullable: false)
                 },
@@ -36,11 +36,26 @@ namespace jory.abp.EntityFrameworkCore.DbMigrations.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "J_HotNews",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    Title = table.Column<string>(maxLength: 200, nullable: false),
+                    Url = table.Column<string>(maxLength: 250, nullable: false),
+                    SourceId = table.Column<int>(type: "int", nullable: false),
+                    CreateTime = table.Column<DateTime>(type: "datetime", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_J_HotNews", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "J_Post_Tags",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Sqlite:Autoincrement", true),
                     PostId = table.Column<int>(type: "int", nullable: false),
                     TagId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -54,12 +69,12 @@ namespace jory.abp.EntityFrameworkCore.DbMigrations.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Sqlite:Autoincrement", true),
                     Title = table.Column<string>(maxLength: 200, nullable: false),
                     Author = table.Column<string>(maxLength: 10, nullable: true),
                     Url = table.Column<string>(maxLength: 100, nullable: false),
-                    Html = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Markdown = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Html = table.Column<string>(maxLength: 2000, nullable: false),
+                    Markdown = table.Column<string>(maxLength: 2000, nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
                     CreationTime = table.Column<DateTime>(type: "datetime", nullable: false)
                 },
@@ -73,13 +88,28 @@ namespace jory.abp.EntityFrameworkCore.DbMigrations.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Sqlite:Autoincrement", true),
                     TagName = table.Column<string>(maxLength: 50, nullable: false),
                     DisplayName = table.Column<string>(maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_J_Tags", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "J_Wallpapers",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    Url = table.Column<string>(maxLength: 200, nullable: false),
+                    Title = table.Column<string>(maxLength: 100, nullable: false),
+                    Type = table.Column<int>(type: "int", nullable: false),
+                    CreateTime = table.Column<DateTime>(type: "datetime", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_J_Wallpapers", x => x.Id);
                 });
         }
 
@@ -92,6 +122,9 @@ namespace jory.abp.EntityFrameworkCore.DbMigrations.Migrations
                 name: "J_Friendlinks");
 
             migrationBuilder.DropTable(
+                name: "J_HotNews");
+
+            migrationBuilder.DropTable(
                 name: "J_Post_Tags");
 
             migrationBuilder.DropTable(
@@ -99,6 +132,9 @@ namespace jory.abp.EntityFrameworkCore.DbMigrations.Migrations
 
             migrationBuilder.DropTable(
                 name: "J_Tags");
+
+            migrationBuilder.DropTable(
+                name: "J_Wallpapers");
         }
     }
 }

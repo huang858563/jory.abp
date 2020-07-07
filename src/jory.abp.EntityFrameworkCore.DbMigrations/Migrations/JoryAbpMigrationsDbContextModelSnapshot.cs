@@ -2,7 +2,6 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Volo.Abp.EntityFrameworkCore;
 using jory.abp.EntityFrameworkCore.DbMigrations.EntityFrameworkCore;
@@ -16,26 +15,23 @@ namespace jory.abp.EntityFrameworkCore.DbMigrations.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("_Abp_DatabaseProvider", EfCoreDatabaseProvider.SqlServer)
-                .HasAnnotation("ProductVersion", "3.1.5")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("_Abp_DatabaseProvider", EfCoreDatabaseProvider.Sqlite)
+                .HasAnnotation("ProductVersion", "3.1.5");
 
             modelBuilder.Entity("jory.abp.Domain.Blog.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("CategoryName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
+                        .HasColumnType("TEXT")
                         .HasMaxLength(50);
 
                     b.Property<string>("DisplayName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
+                        .HasColumnType("TEXT")
                         .HasMaxLength(50);
 
                     b.HasKey("Id");
@@ -47,17 +43,16 @@ namespace jory.abp.EntityFrameworkCore.DbMigrations.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("LinkUrl")
                         .IsRequired()
-                        .HasColumnType("nvarchar(100)")
+                        .HasColumnType("TEXT")
                         .HasMaxLength(100);
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(20)")
+                        .HasColumnType("TEXT")
                         .HasMaxLength(20);
 
                     b.HasKey("Id");
@@ -69,11 +64,10 @@ namespace jory.abp.EntityFrameworkCore.DbMigrations.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Author")
-                        .HasColumnType("nvarchar(10)")
+                        .HasColumnType("TEXT")
                         .HasMaxLength(10);
 
                     b.Property<int>("CategoryId")
@@ -84,20 +78,22 @@ namespace jory.abp.EntityFrameworkCore.DbMigrations.Migrations
 
                     b.Property<string>("Html")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(2000);
 
                     b.Property<string>("Markdown")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(2000);
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(200)")
+                        .HasColumnType("TEXT")
                         .HasMaxLength(200);
 
                     b.Property<string>("Url")
                         .IsRequired()
-                        .HasColumnType("nvarchar(100)")
+                        .HasColumnType("TEXT")
                         .HasMaxLength(100);
 
                     b.HasKey("Id");
@@ -109,8 +105,7 @@ namespace jory.abp.EntityFrameworkCore.DbMigrations.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("PostId")
                         .HasColumnType("int");
@@ -127,17 +122,16 @@ namespace jory.abp.EntityFrameworkCore.DbMigrations.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("DisplayName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
+                        .HasColumnType("TEXT")
                         .HasMaxLength(50);
 
                     b.Property<string>("TagName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(50)")
+                        .HasColumnType("TEXT")
                         .HasMaxLength(50);
 
                     b.HasKey("Id");
@@ -149,7 +143,7 @@ namespace jory.abp.EntityFrameworkCore.DbMigrations.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreateTime")
                         .HasColumnType("datetime");
@@ -159,12 +153,12 @@ namespace jory.abp.EntityFrameworkCore.DbMigrations.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(200)")
+                        .HasColumnType("TEXT")
                         .HasMaxLength(200);
 
                     b.Property<string>("Url")
                         .IsRequired()
-                        .HasColumnType("nvarchar(250)")
+                        .HasColumnType("TEXT")
                         .HasMaxLength(250);
 
                     b.HasKey("Id");
@@ -176,14 +170,14 @@ namespace jory.abp.EntityFrameworkCore.DbMigrations.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreateTime")
                         .HasColumnType("datetime");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(100)")
+                        .HasColumnType("TEXT")
                         .HasMaxLength(100);
 
                     b.Property<int>("Type")
@@ -191,7 +185,7 @@ namespace jory.abp.EntityFrameworkCore.DbMigrations.Migrations
 
                     b.Property<string>("Url")
                         .IsRequired()
-                        .HasColumnType("nvarchar(200)")
+                        .HasColumnType("TEXT")
                         .HasMaxLength(200);
 
                     b.HasKey("Id");

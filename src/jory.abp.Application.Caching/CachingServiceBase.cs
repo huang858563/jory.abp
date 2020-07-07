@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Caching.Distributed;
 using System.Linq;
 using System.Threading.Tasks;
+using jory.abp.Domain.Configurations;
 using Volo.Abp.DependencyInjection;
 
 namespace jory.abp.Application.Caching
@@ -12,14 +13,17 @@ namespace jory.abp.Application.Caching
 
         public async Task RemoveAsync(string key, int cursor = 0)
         {
-            var scan = await RedisHelper.ScanAsync(cursor);
-            var keys = scan.Items;
-
-            if (keys.Any() && key.IsNotNullOrEmpty())
+            if (AppSettings.Caching.IsOpen)
             {
-                keys = keys.Where(x => x.StartsWith(key)).ToArray();
+                var scan = await RedisHelper.ScanAsync(cursor);
+                var keys = scan.Items;
 
-                await RedisHelper.DelAsync(keys);
+                if (keys.Any() && key.IsNotNullOrEmpty())
+                {
+                    keys = keys.Where(x => x.StartsWith(key)).ToArray();
+
+                    await RedisHelper.DelAsync(keys);
+                }
             }
         }
     }

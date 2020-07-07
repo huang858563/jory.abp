@@ -21,8 +21,8 @@ namespace jory.abp.EntityFrameworkCore
                 b.Property(x => x.Title).HasMaxLength(200).IsRequired();
                 b.Property(x => x.Author).HasMaxLength(10);
                 b.Property(x => x.Url).HasMaxLength(100).IsRequired();
-                b.Property(x => x.Html).HasColumnType("nvarchar(max)").IsRequired();
-                b.Property(x => x.Markdown).HasColumnType("nvarchar(max)").IsRequired();
+                b.Property(x => x.Html).HasMaxLength(2000).IsRequired();
+                b.Property(x => x.Markdown).HasMaxLength(2000).IsRequired();
                 b.Property(x => x.CategoryId).HasColumnType("int");
                 b.Property(x => x.CreationTime).HasColumnType("datetime");
             });
