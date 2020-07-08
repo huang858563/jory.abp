@@ -6,7 +6,7 @@
   <ItemGroup>
     <PackageReference Include="Caching.CSRedis" Version="3.6.5" />
     <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="3.1.5" />
-    <PackageReference Include="Volo.Abp.Caching" Version="3.0.2" />
+    <PackageReference Include="Volo.Abp.Caching" Version="3.0.3" />
 
     <ProjectReference Include="..\jory.abp.Application.Contracts\jory.abp.Application.Contracts.csproj" />
     <ProjectReference Include="..\jory.abp.Domain.Shared\jory.abp.Domain.Shared.csproj" />
